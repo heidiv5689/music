@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
-import SubForm from "./SubForm";
+import BillboardForm from "./BillboardForm";
 
 
-const Billboard = ({ id, playlist_name, description, picture, created_at, deleteBillboard, updateBillboard}) => {
+const Billboard = ({ id, playlist_name, description, picture, created_at, updateBillboard, deleteBillboard}) => {
   const [editing, setEdit] = useState(false)
+  
   return (
-      <li>
-        <h1>Playlist: { playlist_name }</h1>
-        <h3>Picture: { picture }</h3>
+      <>
+        <h1>Billboard.js</h1>
+        <h1>Playlist: { playlist_name } ID:{id}</h1>
+        
+        <img src={ picture } />
         <p>Description: { description }</p>
         <p>
           Created: { created_at }
@@ -23,9 +26,11 @@ const Billboard = ({ id, playlist_name, description, picture, created_at, delete
         
         { editing ?
         <>
-          <SubForm 
+          <BillboardForm 
             id={id}
-            title={playlist_name}
+            playlist_name={playlist_name}
+            picture={picture}
+            description={description}
             updateBillboard={updateBillboard}
             setEdit={setEdit}
           />
@@ -39,7 +44,7 @@ const Billboard = ({ id, playlist_name, description, picture, created_at, delete
         </>
       }
         
-      </li>
+      </>
     )
   }
   

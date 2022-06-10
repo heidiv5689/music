@@ -5,7 +5,7 @@ import BillboardNew from './BillboardNew';
 
 // import '../App.css';
 
-const BillboardCopy = () => {
+const BillboardCopy = ({}) => {
   const [billboards, setBillboards] = useState([])
 
   useEffect( () => {
@@ -26,6 +26,7 @@ const BillboardCopy = () => {
       .catch( err => console.log(err))
   }
   
+  
   const updateBillboard = (id, billboard) => {
     axios.put(`/api/billboards/${id}`, { billboard })
       .then( res => {
@@ -44,7 +45,7 @@ const BillboardCopy = () => {
   return (
     <>
   
-      
+      <h1>billboard Copy</h1>
       <BillboardNew addBillboard={addBillboard} />
       <ul>
         { billboards.map( p => (
@@ -55,6 +56,7 @@ const BillboardCopy = () => {
               deleteBillboard={deleteBillboard} 
               />
           ))
+          
         }
       </ul>
     </>

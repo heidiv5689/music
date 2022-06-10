@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../billboards/stylebill.css'
 
 const BillboardNew = ({ addBillboard }) => {
   const [billboard, setBillboard] = useState({ playlist_name: '', description: '', picture: '' })
@@ -12,7 +13,7 @@ const BillboardNew = ({ addBillboard }) => {
   return (
     <>
       <h1>New Billboard</h1>
-      <form onSubmit={handleSubmit}>
+      <form  id='nom' onSubmit={handleSubmit}>
         <input
           placeholder='Play List'
           type='text'

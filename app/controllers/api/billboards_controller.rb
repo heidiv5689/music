@@ -19,7 +19,7 @@ class Api::BillboardsController < ApplicationController
 
   def update
     @billboard = Billboard.find(params[:id])
-    if @billboard.update(Billboard_params)
+    if @billboard.update(billboard_params)
       render json: @billboard 
     else 
       render json: { errors: @billboard.errors }, status: :unprocessable_entity
